@@ -20,8 +20,15 @@ if [ -z "$TRAP" ]; then
 fi
 
 # Execute the main script inline. It will use SCRIPTDIR to find what it needs.
-export LD_LIBRARY_PATH=lib/lib/x86_64-linux-gnu
+export LD_LIBRARY_PATH=root/lib/x86_64-linux-gnu
+mount --bind /dev $SCRIPTDIR/dev
+mount --bind /proc $SCRIPTDIR/proc
+mount --bind /sys $SCRIPTDIR/sys
 chroot $SCRIPTDIR/lib/
+
+umount $SCRIPTDIR/dev
+umount $SCRIPTDIR/proc
+umount $SCRIPTDIR/sys
 
 exit
 ### end of script; tarball follows

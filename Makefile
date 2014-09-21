@@ -1,10 +1,13 @@
 TARGET = pchroot
 WRAPPER = launch.sh
 SCRIPTS := \
-	$(wildcard lib/*) \
-	$(wildcard lib/*/*) \
-	$(wildcard lib/*/*/*) \
-	$(wildcard lib/*/*/*/*) \
+	$(wildcard dev/.file) \
+	$(wildcard sys/.file) \
+	$(wildcard proc/.file) \
+	$(wildcard root/*) \
+	$(wildcard root/*/*) \
+	$(wildcard root/*/*/*) \
+	$(wildcard root/*/*/*/*) \
         $(wildcard bin/*) \
 	$(wildcard menu.sh) \
 	$(wildcard launch.sh) \
