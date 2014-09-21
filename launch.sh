@@ -21,10 +21,16 @@ fi
 
 # Execute the main script inline. It will use SCRIPTDIR to find what it needs.
 export LD_LIBRARY_PATH=root/lib/x86_64-linux-gnu
+
+mkdir $SCRIPTDIR/dev
+mkdir $SCRIPTDIR/proc
+mkdir $SCRIPTDIR/sys
+
 mount --bind /dev $SCRIPTDIR/dev
 mount --bind /proc $SCRIPTDIR/proc
 mount --bind /sys $SCRIPTDIR/sys
-chroot $SCRIPTDIR/lib/
+
+chroot $SCRIPTDIR/root
 
 umount $SCRIPTDIR/dev
 umount $SCRIPTDIR/proc
