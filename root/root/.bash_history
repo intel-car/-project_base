@@ -16,3 +16,8 @@ string
 strings
 ls
 exit
+ls
+ssh
+exit
+ssh
+exit

@@ -22,19 +22,19 @@ fi
 # Execute the main script inline. It will use SCRIPTDIR to find what it needs.
 export LD_LIBRARY_PATH=root/lib/x86_64-linux-gnu
 
-mkdir $SCRIPTDIR/dev
-mkdir $SCRIPTDIR/proc
-mkdir $SCRIPTDIR/sys
+mkdir $SCRIPTDIR/root/dev
+mkdir $SCRIPTDIR/root/proc
+mkdir $SCRIPTDIR/root/sys
 
-mount --bind /dev $SCRIPTDIR/dev
-mount --bind /proc $SCRIPTDIR/proc
-mount --bind /sys $SCRIPTDIR/sys
+mount --bind /dev $SCRIPTDIR/root/dev
+mount --bind /proc $SCRIPTDIR/root/proc
+mount --bind /sys $SCRIPTDIR/root/sys
 
 chroot $SCRIPTDIR/root
 
-umount $SCRIPTDIR/dev
-umount $SCRIPTDIR/proc
-umount $SCRIPTDIR/sys
+umount $SCRIPTDIR/root/dev
+umount $SCRIPTDIR/root/proc
+umount $SCRIPTDIR/root/sys
 
 exit
 ### end of script; tarball follows
