@@ -26,15 +26,19 @@ mkdir $SCRIPTDIR/root/dev
 mkdir $SCRIPTDIR/root/proc
 mkdir $SCRIPTDIR/root/sys
 
-mount --bind /dev $SCRIPTDIR/root/dev
+mount -t devtmpfs none $SCRIPTDIR/root/dev
 mount --bind /proc $SCRIPTDIR/root/proc
 mount --bind /sys $SCRIPTDIR/root/sys
 
 chroot $SCRIPTDIR/root
 
+echo "Releasing filesystems..."
+
 umount $SCRIPTDIR/root/dev
 umount $SCRIPTDIR/root/proc
 umount $SCRIPTDIR/root/sys
+
+sleep 5
 
 exit
 ### end of script; tarball follows
