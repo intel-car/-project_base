@@ -21,3 +21,20 @@ ssh
 exit
 ssh
 exit
+ls
+busybox
+ash
+exit
+tar
+unzip
+zip
+ls
+ls bin
+;s
+adb
+fastboot
+git
+exit
+busybox
+strip
+exit

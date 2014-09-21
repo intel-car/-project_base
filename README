@@ -1,0 +1,19 @@
+FAQ:
+1.) What is this...
+
+A.) In a nutshell...it's a chroot. It's VERY minimal, supplies it's own busybox, android tools,
+and even the latest libc.
+
+
+2.) Why do I get these random errors on compile?
+
+A.) I do not fucking know...
+
+
+
+3.) Does it still compile and work?
+
+A.) Yes it does :P
+
+
+

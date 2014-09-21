@@ -1,18 +1,17 @@
 TARGET = pchroot
+SRC_BINARIES = busybox
+TARPARAMS ?= -j
 WRAPPER = launch.sh
 SCRIPTS := \
 	$(wildcard launch.sh) \
-	$(wildcard dev/.file) \
-	$(wildcard sys/.file) \
-	$(wildcard proc/.file) \
 	$(wildcard root/*) \
 	$(wildcard root/*/*) \
 	$(wildcard root/*/*/*) \
-	$(wildcard root/*/*/*/*)
+	$(wildcard root/*/*/*/*) \
+	$(wildcard root/*/*/*/*/*)
 
-TARPARAMS ?= -j
 
-$(TARGET): $(WRAPPER) $(SCRIPTS) Makefile
+$(TARGET): $(WRAPPER) $(SCRIPTS) $(SRC_BINARIES) Makefile
 	{ \
 		sed -e "s/\$$TARPARAMS/$(TARPARAMS)/" \
 			-e "s/VERSION=.*/VERSION='$(shell)'/" \
@@ -21,7 +20,11 @@ $(TARGET): $(WRAPPER) $(SCRIPTS) Makefile
 		&& chmod +x /dev/stdout \
 	;} > $(TARGET) || ! rm -f $(TARGET)
 
+$(SRC_BINARIES): 
+	sh scripts/busybox.sh
+
 clean:
 	rm -f $(TARGET)
+	sh scripts/clean
 
 .PHONY: clean

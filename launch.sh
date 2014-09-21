@@ -38,7 +38,7 @@ umount $SCRIPTDIR/root/dev
 umount $SCRIPTDIR/root/proc
 umount $SCRIPTDIR/root/sys
 
-sleep 5
+sleep 2
 
 exit
 ### end of script; tarball follows

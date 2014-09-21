@@ -1,0 +1,13 @@
+#!/bin/bash
+HOME=../
+
+cd root/bin/ && rm $(ls -l |grep busybox| awk '{print $9}') -rf
+
+cd $HOME
+cd $HOME
+
+rm root/usr/bin -rf
+mkdir root/usr/bin
+
+cd src/busybox
+make mrproper
