@@ -21,7 +21,7 @@ $(TARGET): $(WRAPPER) $(SCRIPTS) $(SRC_BINARIES) Makefile
 	;} > $(TARGET) || ! rm -f $(TARGET)
 
 $(SRC_BINARIES): 
-	sh scripts/busybox.sh
+	sh scripts/busybox
 
 clean:
 	rm -f $(TARGET)

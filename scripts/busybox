@@ -1,0 +1,10 @@
+if [ -e src/busybox/Makefile ];
+then 
+cd src/busybox && make pchroot_defconfig && make install
+else
+cd src
+rm busybox -rf
+git clone git://busybox.net/busybox.git
+curl https://gist.github.com/rbheromax/9328f608e045e6ede2ec/raw/9795c89a0ff6eec710c1bd1d7cd4fdfc1b88948d/gistfile1.txt > busybox/configs/pchroot_defconfig
+cd busybox && make pchroot_defconfig && make install
+fi
