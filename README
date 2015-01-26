@@ -1,8 +1,7 @@
 FAQ:
 1.) What is this...
 
-A.) In a nutshell...it's a chroot. It's VERY minimal, supplies it's own busybox, android tools,
-and even the latest libc.
+A.) In a nutshell...it's a chroot. It's VERY minimal, supplies it's own busybox and the latest libc.
 
 
 2.) Why do I get these random errors on compile?
@@ -10,10 +9,11 @@ and even the latest libc.
 A.) I do not fucking know...
 
 
-
 3.) Does it still compile and work?
 
-A.) Yes it does :P
+A.) It compiles, but on newer Ubuntu systems, Seg Faults. IDK why.
 
 
+4.) Got any documentation?
 
+A.) Why yes we do. Check out the Documentaion section bundled with the build system

@@ -1,0 +1,3 @@
+Build System:
+
+Right now the build system consists of the main "top-level" Makefile and scripts within the "scripts/" directory to match each target. This handles downloading sources on-the-fly, compiling them, and installing them to the output directory "root/" to be tested in chroot use. This was the only way I could wrap my brain around getting it neat because I am still new to make and this is a one-man project.
