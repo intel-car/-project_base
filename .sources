@@ -1,2 +1,6 @@
-https://github.com/rbheromax/src_glibc src/glibc
-https://github.com/rbheromax/src_busybox src/busybox
+<!---		Should be ignored		--->
+# <repo>				<clone location>
+# Yes, you can use xml comments here too. (Only one liners atm)
+
+git://github.com/rbheromax/src_glibc		src/glibc
+git://github.com/rbheromax/src_busybox		src/busybox

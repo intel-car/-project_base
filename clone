@@ -2,5 +2,54 @@
 while read line
 do
     repo=$line
-    git clone $repo
+# check if commented out in bash syntax
+
+if [[ -z $line ]];
+then 
+echo "Blank line" > /dev/null
+else
+	if [[ $line == "#"* ]] ; then
+	echo "Line ignored" > /dev/null
+	else
+# check if commented out in xml syntax
+		if [[ $line == "<""!"* ]]; then
+		echo "Line ignored" > /dev/null
+		else
+
+# check if valid regex
+regex='(https?|ftp|file|git)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
+link=$(echo $line | awk '{print $1}')
+if [[ $link =~ $regex ]]
+then
+# do shit
+		echo "matches regex" > /dev/null
+		sleep 2
+
+# check target directory for git project
+
+		target_dir=$(echo $line | awk '{print $2}')
+		if [ -e $target_dir/.git ]; then
+		echo "source already synced for project $target_dir"
+		else
+		rm -rf $target_dir
+		git clone $repo
+		fi
+else
+
+# skip link
+
+    echo "Link not valid"
+    echo "Skipping..."
+    echo ""
+    sleep 2
+
+fi #regex
+
+
+
+		fi	# xml comments
+	fi		# bash comments
+fi			# blank line
 done < $1
+# 01-26-15
+# I'll pay someone $50 paypal if they can figure out how to change $1 to something like $input_file

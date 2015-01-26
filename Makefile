@@ -1,7 +1,6 @@
 TARGET = pchroot
 SRC_BINARIES = \
 	 checks \
-	 $(TARGET) \
 	 busybox \
 	 glibc
 
@@ -30,8 +29,9 @@ $(TARGET): $(WRAPPER) $(SCRIPTS) $(SRC_BINARIES) Makefile
 busybox:
 	@make checks
 	make -C src/busybox pchroot_defconfig
-	make -C src/busybox
+/	make -C src/busybox
 	make -C src/busybox install
+
 glibc:
 	@make checks
 	@sh scripts/glibc-2.20
