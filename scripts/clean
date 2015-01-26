@@ -11,3 +11,6 @@ mkdir root/usr/bin
 
 cd src/busybox
 make mrproper
+
+rm src/glibc-2.20/build -rf
+# rm src/glibc-2.20/build32 -rf

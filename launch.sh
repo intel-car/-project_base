@@ -20,7 +20,8 @@ if [ -z "$TRAP" ]; then
 fi
 
 # Execute the main script inline. It will use SCRIPTDIR to find what it needs.
-export LD_LIBRARY_PATH=root/lib/x86_64-linux-gnu
+# export LD_LIBRARY_PATH=root/lib/x86_64-linux-gnu
+export LD_LIBRARY_PATH=lib/
 
 mkdir $SCRIPTDIR/root/dev
 mkdir $SCRIPTDIR/root/proc
@@ -30,7 +31,7 @@ mount -t devtmpfs none $SCRIPTDIR/root/dev
 mount --bind /proc $SCRIPTDIR/root/proc
 mount --bind /sys $SCRIPTDIR/root/sys
 
-chroot $SCRIPTDIR/root
+chroot $SCRIPTDIR/root /bin/ash
 
 echo "Releasing filesystems..."
 
