@@ -2,7 +2,7 @@ if [ -e src/ ];
 then
 sleep 1
 else
-mkdir src
+mkdir src -p
 sleep 1
 fi
 
@@ -10,7 +10,7 @@ if [ -e root/ ];
 then
 sleep 1
 else
-mkdir root
+mkdir root -p
 sleep 1
 fi
 

@@ -17,3 +17,8 @@ A.) It compiles, but on newer Ubuntu systems, Seg Faults. IDK why.
 4.) Got any documentation?
 
 A.) Why yes we do. Check out the Documentaion section bundled with the build system
+
+
+5.) How do I make this shit?
+
+A.) Run "sh ./clone .sources" then "make"

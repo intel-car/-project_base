@@ -1,33 +1,11 @@
 # blah / blah / blah / root
 export PREFIX=$(cd root/ && pwd)
-echo $PREFIX
-cd src
-
-# check for glibc source
-if [ -e glibc-2.20 ];
-
-then
-cd glibc-2.20
+cd glibc
 mkdir build -p
 cd build
 ../configure --prefix=$PREFIX
-make all
+make
 make install
-
-else
-
-# if it doesnt exist, download it
-wget http://ftp.gnu.org/gnu/glibc/glibc-2.20.tar.xz
-tar -xJf glibc-2.20.tar.xz
-rm glibc-2.20.tar.xz
-cd glibc-2.20
-mkdir build -p
-cd build
-../configure --prefix=$PREFIX
-make all
-make install
-
-fi
 
 # give us some time
 # we just built a large project

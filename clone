@@ -1,0 +1,6 @@
+#!/bin/bash
+while read line
+do
+    repo=$line
+    git clone $repo
+done < $1

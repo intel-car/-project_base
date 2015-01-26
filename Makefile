@@ -29,8 +29,9 @@ $(TARGET): $(WRAPPER) $(SCRIPTS) $(SRC_BINARIES) Makefile
 
 busybox:
 	@make checks
-	@sh scripts/busybox
-
+	make -C src/busybox pchroot_defconfig
+	make -C src/busybox
+	make -C src/busybox install
 glibc:
 	@make checks
 	@sh scripts/glibc-2.20
@@ -40,8 +41,10 @@ checks:
 
 clean:
 	@rm -f $(TARGET)
-	@sh scripts/clean
+	@make -C src/busybox clean
+	@make -C src/glibc-2.20/build clean
 	@rm -rf root
+
 mrproper:
 	@rm -f $(TARGET)
 	@rm -rf src
